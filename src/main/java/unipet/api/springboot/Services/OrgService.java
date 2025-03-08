@@ -1,8 +1,8 @@
 package unipet.api.springboot.Services;
 
 import unipet.api.springboot.Repositories.OrgRepository;
+import unipet.api.springboot.Services.Execeptions.OrgAlreadyExistsException;
 import unipet.api.springboot.Entities.Org;
-import unipet.api.springboot.Services.execeptions.OrgAlreadyExistsException;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,4 +1,4 @@
-package unipet.api.springboot.Services.execeptions;
+package unipet.api.springboot.Services.Execeptions;
 
 public class OrgAlreadyExistsException extends RuntimeException {
     public OrgAlreadyExistsException() {
