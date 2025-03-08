@@ -1,7 +1,5 @@
-package unipet.api.springboot.entity;
+package unipet.api.springboot.Entities;
 
-
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -41,8 +39,8 @@ public class Org {
     private String city;
     private String state;
     
-    private BigDecimal latitude;
-    private BigDecimal longitude;
+    private double latitude;
+    private double longitude;
 
     @OneToMany(mappedBy = "org", cascade = CascadeType.ALL)
     private List<Pet> pets;

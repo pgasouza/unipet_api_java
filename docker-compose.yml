@@ -1,14 +1,9 @@
 services:
-  mysql:
-    image: mysql:8.4
-    restart: always
-    container_name: mysql-nlw
+  db-postgres:
+    image: bitnami/postgresql
+    ports:
+      - 5432:5432
     environment:
-      - MYSQL_ROOT_PASSWORD=mysql
-    ports: 
-      - '3306:3306'
-    networks: 
-      - nlw-network
-networks:
-  nlw-network:
-    driver: bridge
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=unipet
+      - POSTGRESQL_DATABASE=unipetdb

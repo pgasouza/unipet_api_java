@@ -1,4 +1,4 @@
-package unipet.api.springboot.entity;
+package unipet.api.springboot.Entities;
 
 
 import java.util.UUID;
