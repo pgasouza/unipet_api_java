@@ -1,20 +1,17 @@
-package unipet.api.springboot.Services;
+package com.codexpro.Unipet.services;
 
-import unipet.api.springboot.Repositories.OrgRepository;
-import unipet.api.springboot.Services.Execeptions.OrgAlreadyExistsException;
-import unipet.api.springboot.Entities.Org;
-
+import com.codexpro.Unipet.domain.entities.Org;
+import com.codexpro.Unipet.repositories.InMemoryOrgsRepository;
+import com.codexpro.Unipet.services.exceptions.OrgAlreadyExistsException;
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class OrgService {
 
-    private final OrgRepository orgRepository;
-
-    public OrgService(OrgRepository orgRepository) {
-        this.orgRepository = orgRepository;
-    }
+    @Autowired
+    private InMemoryOrgsRepository orgsRepository;
 
     @Transactional
     public Org registerOrg(
@@ -30,8 +27,8 @@ public class OrgService {
             String state,
             Double latitude,
             Double longitude
-    ) {
-        if (orgRepository.findByEmail(email).isPresent()) {
+    ){
+        if(orgsRepository.findByEmail(email).isPresent()){
             throw new OrgAlreadyExistsException();
         }
 
@@ -49,6 +46,6 @@ public class OrgService {
         org.setLatitude(latitude);
         org.setLongitude(longitude);
 
-        return orgRepository.save(org);
+        return orgsRepository.create(org);
     }
 }

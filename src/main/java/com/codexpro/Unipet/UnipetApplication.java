@@ -1,13 +1,13 @@
-package unipet.api.springboot;
+package com.codexpro.Unipet;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringbootApplication {
+public class UnipetApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringbootApplication.class, args);
+		SpringApplication.run(UnipetApplication.class, args);
 	}
 
 }
